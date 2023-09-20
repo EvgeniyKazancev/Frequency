@@ -23,6 +23,6 @@ public class FrequencyController {
 
     @GetMapping("/frequency")
     public ResponseMessage Frequency (@RequestParam String str){
-     return new ResponseMessage("Результат :" , frequencyService.counter(str));
+     return new ResponseMessage("Результат : " , frequencyService.counter(str));
     }
 }
