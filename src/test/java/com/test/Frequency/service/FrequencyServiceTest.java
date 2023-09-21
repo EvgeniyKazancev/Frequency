@@ -5,11 +5,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
+import java.util.LinkedHashMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FrequencyServiceTest {
 
-    public static FrequencyService frequencyService;
+    private final FrequencyService frequencyService = new FrequencyService();
 
     @BeforeAll
     public static void before() {
@@ -18,7 +20,12 @@ class FrequencyServiceTest {
 
     @Test
     public void testCounter() {
-        String result = frequencyService.counter("aaabvv");
-        Assertions.assertEquals("a:3 v:2 b:1",result);
+       LinkedHashMap<Character,Integer> actual = frequencyService.counter("aaabvv");
+       LinkedHashMap<Character,Integer> expected = new LinkedHashMap<>(){{
+           put('a',3);
+           put('v',2);
+           put('b',1);
+       }};
+        Assertions.assertEquals(expected,actual);
     }
 }
