@@ -22,7 +22,7 @@ public class FrequencyController {
     }
 
     @GetMapping("/frequency")
-    public LinkedHashMap<Character,Integer> Frequency (@RequestParam String str){
+    public LinkedHashMap<Character,Integer> frequency (@RequestParam String str){
      return  frequencyService.counter(str);
     }
 }
